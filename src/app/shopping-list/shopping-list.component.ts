@@ -14,7 +14,9 @@ export class ShoppingListComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit() {}
+
+  onIngredientAdded(ingredient:Ingredient){
+    this.ingredients.push(ingredient);
   }
 }
