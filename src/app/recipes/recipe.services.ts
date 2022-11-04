@@ -29,7 +29,9 @@ constructor(private slService: ShoppingService ){}
   getRecipes(){
     return this.recipes.slice();
   }
-
+  getRecipeDetail(index: number){
+    return this.recipes.slice()[index];
+  }
   addIngredientsToShoppingList(ingredients: Ingredient[]){
        this.slService.addIngredients(ingredients);
   }
