@@ -22,9 +22,13 @@ export class RecipeEditComponent implements OnInit {
       this.id = +params['id'];
       this.editMode = params['id'] != null;
       this.initForm();
+      console.log(this.recipeForm);
     });
   }
 
+  getArrayControls(arrayName : string) {
+    return (this.recipeForm.get(arrayName) as FormArray).controls;
+  }
   onSubmit() {
     console.log(this.recipeForm);
   }
@@ -32,7 +36,7 @@ export class RecipeEditComponent implements OnInit {
     let recipeName = '';
     let recipeImagePath = '';
     let recipeDescription = '';
-    let recipeIngredients = new FormArray<any>([]);
+    let recipeIngredients = new FormArray<FormGroup>([]);
 
     if (this.editMode) {
       const recipe = this.recipeService.getRecipeDetail(this.id);
